@@ -172,13 +172,16 @@
   color: #fff;
   z-index: 10;
   transition: ease 0.3s;
-  transform: translateX(100%);
+  transform: translateX(110%);
   &--active {
     transform: translateX(0);
   }
   &__wrapper {
-    width: 286px;
+    max-width: 286px;
     position: relative;
+  }
+  &__form{
+    width: 100%;
   }
   &__close-button {
     width: 62px;
@@ -194,7 +197,6 @@
     top: -128px;
     left: -90px;
     &:hover {
-      transform: scale(1.1);
       background-color: $orange;
     }
   }
@@ -233,10 +235,11 @@
   &__form-radious {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 16px;
   }
-  &__form-label + &__form-label {
-    margin-left: 30px;
+  &__form-label:not(:last-of-type()){
+    margin-right: 30px;
   }
   &__form-radio {
     display: none;
@@ -613,6 +616,7 @@
     border-bottom: 1px solid #ffffff;
     color: #fff;
     transition: ease 0.3s;
+    margin-right: 20px;
     &:hover {
       border-bottom: 1px solid $orange;
     }
@@ -625,7 +629,7 @@
     font-weight: 300;
     font-size: 12px;
     line-height: 18px;
-    width: 430px;
+    max-width: 430px;
   }
   &__close-btn {
     position: absolute;
@@ -1080,11 +1084,12 @@
 }
 
 .about-items {
-  padding: 20px 0;
+  padding-top: 20px ;
   border-top: 1px solid #d7d7d7;
   border-bottom: 1px solid #d7d7d7;
   &__list {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
   }
   .about-item__link {
@@ -1096,8 +1101,11 @@
       color: $orange;
     }
   }
-  .about-item + .about-item {
-    margin-left: 50px;
+  .about-item{
+    margin-bottom: 20px;
+  }
+  .about-item:not(:last-of-type()){
+    margin-right: 50px;
   }
   .about-item__text {
     margin-right: 7px;
@@ -1375,10 +1383,12 @@
   }
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    grid-template-columns: repeat(auto-fill, minmax(290px, auto));
     grid-gap: 40px 100px;
+    align-items: end;
   }
   &__item {
+    margin: 0 auto;
     width: 300px;
     transition: ease 0.3s;
     &:hover {

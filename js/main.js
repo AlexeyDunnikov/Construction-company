@@ -5,9 +5,26 @@ $(function () {
   })
 
   //filter button
-  $('.filter-button').on('click', function(){
-    $('.catalog__filter').toggleClass('catalog__filter--active');
+
+  $('body').on('click', function(evt){
+    $className = evt.target.className;
+    if ($className.indexOf('filter-button') >= 0){
+      $(".catalog__filter").toggleClass("catalog__filter--active");
+    }
+    else{
+      $(".catalog__filter").removeClass("catalog__filter--active");
+    }
   })
+
+ 
+
+  //application
+  $(".services__content-button__leave").on('click', function(){
+    $(".application").toggleClass('application--active');
+  });
+  $(".application__close-button").on('click', function(){
+    $(".application").removeClass("application--active");
+  });
 
   //services slider
   $(".services__slider").slick({
